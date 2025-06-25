@@ -1,50 +1,29 @@
 // client/src/App.jsx
+import { Routes, Route, Link } from 'react-router-dom';
+import Home from './pages/Home';
+import Projects from './pages/Projects';
+import Team from './pages/Team';
+import Publications from './pages/Publications';
 
 function App() {
   return (
-    <div style={{ padding: "2rem", fontFamily: "sans-serif" }}>
-      <h1>Engineering & Sustainable Development Laboratory</h1>
-      <p>Welcome to our official website frontend!</p>
+    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
+      <h1>Engineering & Sustainable Development Lab</h1>
+      <nav style={{ marginBottom: '1rem' }}>
+        <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
+        <Link to="/projects" style={{ marginRight: '1rem' }}>Projects</Link>
+        <Link to="/team" style={{ marginRight: '1rem' }}>Team</Link>
+        <Link to="/publications">Publications</Link>
+      </nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/publications" element={<Publications />} />
+      </Routes>
     </div>
   );
 }
 
 export default App;
-
-
-/*import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-
-function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
-
-export default App*/
