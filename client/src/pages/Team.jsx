@@ -1,13 +1,19 @@
 import { Card, Row, Col } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 const team = [
   { name: 'Dr. Amina B.', role: 'Lab Director', img: 'https://via.placeholder.com/150' },
   { name: 'Samir D.', role: 'Researcher', img: 'https://via.placeholder.com/150' },
+  { name: 'Layla K.', role: 'Project Coordinator', img: 'https://via.placeholder.com/150' },
 ];
 
 function Team() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="mb-4 text-primary">Our Team</h2>
       <Row className="g-4">
         {team.map((member, idx) => (
@@ -22,7 +28,7 @@ function Team() {
           </Col>
         ))}
       </Row>
-    </>
+    </motion.div>
   );
 }
 

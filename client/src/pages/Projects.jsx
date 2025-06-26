@@ -1,4 +1,5 @@
 import { Card, Row, Col } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 const projectList = [
   {
@@ -9,11 +10,19 @@ const projectList = [
     title: 'Solar-Powered Desalination',
     desc: 'A low-cost solar desalination system for rural water access.',
   },
+  {
+    title: 'Smart Irrigation Monitoring',
+    desc: 'IoT-based water usage optimization system for agriculture.',
+  },
 ];
 
 function Projects() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="mb-4 text-primary">Our Projects</h2>
       <Row className="g-4">
         {projectList.map((proj, idx) => (
@@ -27,7 +36,7 @@ function Projects() {
           </Col>
         ))}
       </Row>
-    </>
+    </motion.div>
   );
 }
 

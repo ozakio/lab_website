@@ -1,4 +1,5 @@
 import { ListGroup } from 'react-bootstrap';
+import { motion } from 'framer-motion';
 
 const publications = [
   {
@@ -11,11 +12,20 @@ const publications = [
     authors: 'R. Ali, N. Tarek',
     year: 2023,
   },
+  {
+    title: 'Energy Efficiency in Smart Cities',
+    authors: 'M. Karim, A. Bouteldja',
+    year: 2022,
+  },
 ];
 
 function Publications() {
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="mb-4 text-primary">Publications</h2>
       <ListGroup>
         {publications.map((pub, idx) => (
@@ -25,7 +35,7 @@ function Publications() {
           </ListGroup.Item>
         ))}
       </ListGroup>
-    </>
+    </motion.div>
   );
 }
 
