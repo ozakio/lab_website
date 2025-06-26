@@ -1,7 +1,7 @@
 import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import './navbar.css'; // 👈 Add this for custom styling
+import './navbar.css'; 
 
 const AnimatedNavbar = () => {
   const location = useLocation();
