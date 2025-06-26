@@ -1,6 +1,6 @@
 import { Card, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet'; // use -async version
+import { Helmet } from 'react-helmet-async';
 
 const team = [
   { name: 'Dr. Amina B.', role: 'Lab Director', img: 'https://via.placeholder.com/150' },

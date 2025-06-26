@@ -1,6 +1,6 @@
 import { Card, Button, Row, Col } from 'react-bootstrap';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Home() {
   return (

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { ListGroup, Form } from 'react-bootstrap';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet'; // <-- use helmet-async instead of helmet
+import { Helmet } from 'react-helmet-async';
 
 function Publications() {
   const [allPublications, setAllPublications] = useState([]);

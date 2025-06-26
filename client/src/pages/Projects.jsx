@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
