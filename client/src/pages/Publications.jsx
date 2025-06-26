@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { ListGroup, Form } from 'react-bootstrap';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet'; // <-- use helmet-async instead of helmet
 
 function Publications() {
   const [allPublications, setAllPublications] = useState([]);
@@ -24,7 +25,14 @@ function Publications() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <Helmet>
+        <title>Publications | Lab Name</title>
+        <meta name="description" content="Scientific publications from our research team." />
+        <link rel="canonical" href="https://your-lab-site.com/publications" />
+      </Helmet>
+
       <h2 className="mb-4 text-primary">Publications</h2>
+
       <Form.Control
         type="text"
         placeholder="Search by title or author"
@@ -32,11 +40,15 @@ function Publications() {
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
+
       <ListGroup>
         {filtered.map((pub) => (
           <ListGroup.Item key={pub.id}>
-            <strong>{pub.title}</strong><br />
-            <small>{pub.authors} – {pub.year}</small>
+            <div vocab="http://schema.org/" typeof="ScholarlyArticle">
+              <span property="name"><strong>{pub.title}</strong></span><br />
+              <span property="author">{pub.authors}</span><br />
+              <span property="datePublished">{pub.year}</span>
+            </div>
           </ListGroup.Item>
         ))}
       </ListGroup>

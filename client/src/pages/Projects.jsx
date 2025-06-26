@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Card, Row, Col } from 'react-bootstrap';
 import axios from 'axios';
 import { motion } from 'framer-motion';
+import { Helmet } from 'react-helmet';
 
 function Projects() {
   const [projects, setProjects] = useState([]);
@@ -13,11 +14,17 @@ function Projects() {
   }, []);
 
   return (
+          
         <motion.div
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
+      <Helmet>
+        <title>Publications | Lab Name</title>
+        <meta name="description" content="Scientific publications from our research team." />
+        <link rel="canonical" href="https://your-lab-site.com/publications" />
+      </Helmet> 
       <h2 className="mb-4 text-primary">Our Projects</h2>
       <Row className="g-4">
         {projects.map((proj) => (
