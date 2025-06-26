@@ -1,4 +1,4 @@
-// client/src/App.jsx
+import { Container, Navbar, Nav } from 'react-bootstrap';
 import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
@@ -7,22 +7,27 @@ import Publications from './pages/Publications';
 
 function App() {
   return (
-    <div style={{ padding: '2rem', fontFamily: 'sans-serif' }}>
-      <h1>Engineering & Sustainable Development Lab</h1>
-      <nav style={{ marginBottom: '1rem' }}>
-        <Link to="/" style={{ marginRight: '1rem' }}>Home</Link>
-        <Link to="/projects" style={{ marginRight: '1rem' }}>Projects</Link>
-        <Link to="/team" style={{ marginRight: '1rem' }}>Team</Link>
-        <Link to="/publications">Publications</Link>
-      </nav>
+    <>
+      <Navbar bg="light" expand="lg">
+        <Container>
+          <Navbar.Brand as={Link} to="/">Engineering Lab</Navbar.Brand>
+          <Nav className="me-auto">
+            <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
+            <Nav.Link as={Link} to="/team">Team</Nav.Link>
+            <Nav.Link as={Link} to="/publications">Publications</Nav.Link>
+          </Nav>
+        </Container>
+      </Navbar>
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/projects" element={<Projects />} />
-        <Route path="/team" element={<Team />} />
-        <Route path="/publications" element={<Publications />} />
-      </Routes>
-    </div>
+      <Container className="mt-4">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/publications" element={<Publications />} />
+        </Routes>
+      </Container>
+    </>
   );
 }
 
