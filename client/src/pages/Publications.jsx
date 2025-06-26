@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ListGroup, Form } from 'react-bootstrap';
 import axios from 'axios';
+import { motion } from 'framer-motion';
 
 function Publications() {
   const [allPublications, setAllPublications] = useState([]);
@@ -18,7 +19,11 @@ function Publications() {
   );
 
   return (
-    <>
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
       <h2 className="mb-4 text-primary">Publications</h2>
       <Form.Control
         type="text"
@@ -35,7 +40,7 @@ function Publications() {
           </ListGroup.Item>
         ))}
       </ListGroup>
-    </>
+    </motion.div>
   );
 }
 
