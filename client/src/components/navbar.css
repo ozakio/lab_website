@@ -1,0 +1,25 @@
+.nav-pill-container {
+  gap: 10px;
+}
+
+.nav-pill {
+  border-radius: 999px;
+  overflow: hidden;
+  transition: background-color 0.3s ease;
+}
+
+.nav-pill-link {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background-color: transparent;
+  color: #ffffff;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.nav-pill-link:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
+}

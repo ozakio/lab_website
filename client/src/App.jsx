@@ -1,5 +1,9 @@
-import { Container, Navbar, Nav } from 'react-bootstrap';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
+import { Routes, Route } from 'react-router-dom';
+import { motion } from 'framer-motion';
+
+import AnimatedNavbar from './components/AnimatedNavbar';
+
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Team from './pages/Team';
@@ -8,27 +12,30 @@ import Publications from './pages/Publications';
 function App() {
   return (
     <>
-      <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand as={Link} to="/">Engineering Lab</Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link as={Link} to="/projects">Projects</Nav.Link>
-            <Nav.Link as={Link} to="/team">Team</Nav.Link>
-            <Nav.Link as={Link} to="/publications">Publications</Nav.Link>
-          </Nav>
-        </Container>
-      </Navbar>
+      <AnimatedNavbar />
 
       <Container className="mt-4">
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/team" element={<Team />} />
-          <Route path="/publications" element={<Publications />} />
+          <Route path="/" element={<AnimatedPage><Home /></AnimatedPage>} />
+          <Route path="/projects" element={<AnimatedPage><Projects /></AnimatedPage>} />
+          <Route path="/team" element={<AnimatedPage><Team /></AnimatedPage>} />
+          <Route path="/publications" element={<AnimatedPage><Publications /></AnimatedPage>} />
         </Routes>
       </Container>
     </>
   );
 }
+
+// Animation wrapper for pages
+const AnimatedPage = ({ children }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 30 }}
+    animate={{ opacity: 1, y: 0 }}
+    exit={{ opacity: 0, y: -30 }}
+    transition={{ duration: 0.4 }}
+  >
+    {children}
+  </motion.div>
+);
 
 export default App;
