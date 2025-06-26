@@ -8,6 +8,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Team from './pages/Team';
 import Publications from './pages/Publications';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path="/publications" element={<AnimatedPage><Publications /></AnimatedPage>} />
         </Routes>
       </Container>
+      <Footer />
     </>
   );
 }
